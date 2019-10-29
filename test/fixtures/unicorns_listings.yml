@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  unicorns_user: one
+  buyout_price: 1
+
+two:
+  unicorns_user: two
+  buyout_price: 1

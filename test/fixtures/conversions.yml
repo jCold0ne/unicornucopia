@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  aud: 1
+  stripe_id: MyString
+  balance: one
+
+two:
+  aud: 1
+  stripe_id: MyString
+  balance: two
