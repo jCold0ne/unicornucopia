@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  unicorns_listing: one
+  buyer_balance: one
+  seller_balance: one
+
+two:
+  unicorns_listing: two
+  buyer_balance: two
+  seller_balance: two

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_29_045119) do
+ActiveRecord::Schema.define(version: 2019_10_29_230957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,12 +44,39 @@ ActiveRecord::Schema.define(version: 2019_10_29_045119) do
     t.index ["user_id"], name: "index_balances_on_user_id"
   end
 
+  create_table "conversions", force: :cascade do |t|
+    t.integer "aud"
+    t.string "stripe_id"
+    t.bigint "balance_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["balance_id"], name: "index_conversions_on_balance_id"
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.bigint "unicorns_listing_id"
+    t.bigint "buyer_balance_id"
+    t.bigint "seller_balance_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["buyer_balance_id"], name: "index_purchases_on_buyer_balance_id"
+    t.index ["seller_balance_id"], name: "index_purchases_on_seller_balance_id"
+    t.index ["unicorns_listing_id"], name: "index_purchases_on_unicorns_listing_id"
+  end
+
   create_table "unicorns", force: :cascade do |t|
     t.string "name"
-    t.text "description"
     t.integer "original_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "unicorns_listings", force: :cascade do |t|
+    t.bigint "unicorns_user_id"
+    t.integer "buyout_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["unicorns_user_id"], name: "index_unicorns_listings_on_unicorns_user_id"
   end
 
   create_table "unicorns_users", force: :cascade do |t|
@@ -62,15 +89,24 @@ ActiveRecord::Schema.define(version: 2019_10_29_045119) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "full_name"
-    t.string "email"
-    t.string "password"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "balances", "users"
+  add_foreign_key "conversions", "balances"
+  add_foreign_key "purchases", "balances", column: "buyer_balance_id"
+  add_foreign_key "purchases", "balances", column: "seller_balance_id"
+  add_foreign_key "purchases", "unicorns_listings"
+  add_foreign_key "unicorns_listings", "unicorns_users"
   add_foreign_key "unicorns_users", "unicorns"
   add_foreign_key "unicorns_users", "users"
 end
