@@ -1,12 +1,11 @@
 <h1> Confrim Payment </h1>
 
-<h1><%= @listing.title %></h1>
 
 <h2>Description</h2>
-<p><%= @listing.description %></p>
+<p>are yu sure you wat to \make this transactions?</p>
 
 <button data-stripe="payment">
-  Pay Deposit <%= number_to_currency(@listing.deposit) %>
+    pay now
 </button>
 
 <script src="https://js.stripe.com/v3/"></script>
