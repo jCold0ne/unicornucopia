@@ -2,12 +2,30 @@ h1 {
     color:red, 
 }
 
-.background {
-    width: 300px;
-    height: 300px;
-    background-image: url(image-path("index/1.png"));
+h2 {
+    color: pink;
+    text-decoration: none;
+}
+
+.links {
+    text-decoration: none; 
+}
+
+
+.pics {
+    width: 350px;
+    height: 550px;
+    display: inline-block;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 

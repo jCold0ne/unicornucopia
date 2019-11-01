@@ -1,5 +1,13 @@
 <h1> Unicorn Index </h1>
 
-<div class="background">
-
-</div> 
+<section>
+    <% @unicorns.each do |unicorn| %>
+        <%= link_to(unicorn) do %>
+        
+            <%= image_tag unicorn.pic, :class => "pics" if unicorn.pic.attached? %>
+            <h2><%= unicorn.name %></h2>
+            <h3><%= unicorn.original_price %></h3> 
+        
+        <% end %>
+    <% end %>
+</section>
