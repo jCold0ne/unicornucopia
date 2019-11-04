@@ -1,0 +1,20 @@
+<h1> My Collection </h1>
+
+<section>
+    <% @collection.each do |unicorn| %>
+        <%= link_to(unicorn) do %>
+
+        
+            <%= image_tag unicorn.pic, :class => "pics" if unicorn.pic.attached? %>
+            <h2><%= unicorn.name %></h2>
+            <h3><%= unicorn.original_price %></h3> 
+        
+        <% end %>
+    
+    <%= form_with url: new_listing_path, local:true do |form| %>
+    <%= form.text_field :buyout_price %>
+    <%= form.submit%>
+    <%end %>
+
+    <% end %>
+</section>

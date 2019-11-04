@@ -7,9 +7,10 @@ class PaymentsController < ApplicationController
     def webhook
         p "*******************************"
         p params
-        payment_id= params[:data][:object][:payment_intent]
+        payment_id = params[:data][:object][:payment_intent]
         payment = Stripe::PaymentIntent.retrieve(payment_id)
         user_id = payment.metadata.user_id
+        @amount = params[:payment][:data][:object][:display_items][0][:amount]
     end 
 
     def new  
@@ -42,5 +43,5 @@ class PaymentsController < ApplicationController
     end 
 
   
-    @amount = params[:payment][:data][:object][:display_items][0][:amount]
+    
 end 

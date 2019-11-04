@@ -11,7 +11,11 @@ before_action :authenticate_user!, except: [:index, :show]
     end 
 
     def show
-   
+        
+    end 
+
+    def collection
+        @collection = current_user.unicorns
     end 
 
 
