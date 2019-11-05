@@ -11,7 +11,7 @@
         
         <% end %>
     
-    <%= form_with url: new_listing_path, local:true do |form| %>
+    <%= form_with url: new_listing_path(unicorn.id), local:true do |form| %>
     <%= form.text_field :buyout_price %>
     <%= form.submit%>
     <%end %>

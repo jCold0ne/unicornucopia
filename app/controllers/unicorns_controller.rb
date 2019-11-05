@@ -8,10 +8,12 @@ before_action :authenticate_user!, except: [:index, :show]
         else
             @unicorns = Unicorn.all
         end
+
+       
     end 
 
     def show
-        
+        @unicorns = Unicorn.find(params[:id])
     end 
 
     def collection

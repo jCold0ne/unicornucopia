@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :unicorns_users
   has_many :unicorns, through: :unicorns_users
-  has_many :balances
+  has_one :balance
 end

@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   get "/payments/success", to: "payments#success", as: "success_payment"
   post "/payments/webhook", to: "payments#webhook", as: "webhook_payment"
 
-  post "/listings/new", to: "listings#new", as: "new_listing"
-  
+  get "/listings", to: "listings#index", as: "listings"
+  post "/listings/new/:unicorn_id", to: "listings#new", as: "new_listing"
+
 
 end

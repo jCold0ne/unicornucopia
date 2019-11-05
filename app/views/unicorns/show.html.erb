@@ -1,1 +1,10 @@
 <h1> Individual Unicorn </h1>
+
+<section>
+
+    <%= image_tag @unicorns.pic, :class => "pics" if @unicorns.pic.attached? %>
+    <h2><%= @unicorns.name.capitalize %></h2>
+    <h3><%= @unicorns.original_price %></h3> 
+
+
+</section>
