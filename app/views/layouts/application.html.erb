@@ -12,9 +12,32 @@
   </head>
 
   <body>
-    <% if user_signed_in? %> 
-    <%= "#{current_user.email} #{current_user.balance.amount}"%>
+
+
+  <header>
+    <% if user_signed_in? %>
+    <h1 class="logo"></h1>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <nav>
+      <ul>
+        <li><a href="<%= unicorns_path %>">Home</a></li>
+        <li><a href="<%= listings_path %>">Listings</a></li>
+        <li><a href="<%= new_payment_path %>">UniCoins</a></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li><%= "Current User: #{current_user.email}" %>
+        <li><%= "Unicoins: #{current_user.balance.amount}"%>
+      </ul>
+    </nav>
+    <label for="nav-toggle" class="nav-toggle-label">
+      <span></span>
+    </label>
     <% end %>
+</header>
+
+
+
     <%= yield %>
     <%= render "layouts/alerts" %>
   </body>

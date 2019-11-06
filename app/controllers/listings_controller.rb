@@ -10,5 +10,15 @@ class ListingsController < ApplicationController
     def index 
         @listings = UnicornsListing.all
     end 
+
+    def purchase
+
+    end 
+
+    def show 
+        
+
+    end 
+
 end 
 

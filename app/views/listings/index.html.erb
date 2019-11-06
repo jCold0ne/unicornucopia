@@ -3,16 +3,20 @@
 
 
 <section>
-    <% @unicorns.each do |unicorn| %>
-        <%= link_to(unicorn) do %>
+    <% @listings.each do |listing| %>
+        <%= link_to(listing_path(listing)) do %>
         
-            <%= image_tag unicorn.pic, :class => "pics" if unicorn.pic.attached? %>
-            <h2><%= unicorn.name.capitalize %></h2>
-            <h3><%= unicorn.original_price %></h3> 
+            <%= image_tag listing.unicorn.pic, :class => "pics" if listing.unicorn.pic.attached? %>
+            <h2><%= listing.unicorn.name.capitalize %></h2>
+            <h3><%= listing.buyout_price %></h3> 
         
         <% end %>
     <% end %>
 </section>
 
-<p>button which links back to listings controller </p>
 
+<button>
+<p>a button which links back to listings controller which runs the purchase method verifying users balance is greater than listings buyout price </p>
+</button >
+
+<%= link_to '<button type="button">BUY</button>'.html_safe, unicorns_path %>

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post "/payments/webhook", to: "payments#webhook", as: "webhook_payment"
 
   get "/listings", to: "listings#index", as: "listings"
+  get "listings/:id", to: "listings#show", as: "listing"
   post "/listings/new/:unicorn_id", to: "listings#new", as: "new_listing"
 
 
