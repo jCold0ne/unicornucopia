@@ -9,9 +9,11 @@ class PaymentsController < ApplicationController
         payment = Stripe::PaymentIntent.retrieve(payment_id)
         user_id = payment.metadata.user_id
         user = User.find(user_id)
-        @amount = params[:payment][:data][:object][:display_items][0][:amount].to_i * 100
-        @amount += user.balance.amount  
-        user.balance.update_attributes(amount: @amount)
+        amount = params[:payment][:data][:object][:display_items][0][:amount].to_i * 100
+
+        user.balances.create(amount: amount)
+        # @amount += user.balance.amount  
+        # user.balance.update_attributes(amount: @amount)
     end 
 
     def new  

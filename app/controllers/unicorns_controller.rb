@@ -8,8 +8,6 @@ before_action :authenticate_user!, except: [:index, :show]
         else
             @unicorns = Unicorn.all
         end
-
-       
     end 
 
     def show
@@ -21,10 +19,7 @@ before_action :authenticate_user!, except: [:index, :show]
     end 
 
 
-      private
-    # def unicorn_params
-    #     params.require(:milkshake).permit(:name, :description, :price, :pic, ingredient_ids: [])
-    # end   
+      private 
     
     def set_unicorn 
         @unicorn = Unicorn.find(params[:id])
@@ -38,6 +33,4 @@ before_action :authenticate_user!, except: [:index, :show]
         redirect_to unicorns_path
         end 
     end 
-
-
 end 

@@ -28,7 +28,7 @@
         <li></li>
         <li></li>
         <li><%= "Current User: #{current_user.email}" %>
-        <li><%= "Unicoins: #{current_user.balance.amount}"%>
+        <li><%= "Unicoins: #{current_user.balances.sum(:amount)}"%>
       </ul>
     </nav>
     <label for="nav-toggle" class="nav-toggle-label">
