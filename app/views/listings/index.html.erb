@@ -1,6 +1,4 @@
-<h1> all listings </h1>
-
-
+<h1> Listings </h1>
 
 <section>
     <% @listings.each do |listing| %>
@@ -8,11 +6,8 @@
         
             <%= image_tag listing.unicorn.pic, :class => "pics" if listing.unicorn.pic.attached? %>
             <h2><%= listing.unicorn.name.capitalize %></h2>
-            <h3><%= listing.buyout_price %></h3> 
+            <h3>Price: <%= listing.buyout_price %></h3> 
             <button>Buy</button>
         <% end %>
     <% end %>
 </section>
-
-
-<%= link_to '<button type="button">BUY</button>'.html_safe, unicorns_path %>

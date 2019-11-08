@@ -1,9 +1,11 @@
 <h1> New payment </h1> 
 
-<%= form_with url: payments_path, local:true do |form| %>
-  $<%= form.text_field :amount %>
-  <%= form.submit%>
-<% end %>
-
-
-
+<div class="wrapper">
+  <div class="new-payment">
+    Make your dreams come true with more Unicoins. Unicoins are 1000 times better than real money so $1 = 1000 Unicoins
+    <%= form_with url: payments_path, local:true do |form| %>
+      $<%= form.text_field :amount %>
+      <%= form.submit%>
+    <% end %>
+  </div>
+</div> 

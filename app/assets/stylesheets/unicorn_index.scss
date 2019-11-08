@@ -1,20 +1,14 @@
 h1 {
-    color: rgb(243, 237, 237), 
+    color: rgb(0, 0, 0), 
 }
 
 h2 {
-    color: rgb(243, 181, 191);
-    text-decoration: none;
+    color: rgb(247, 29, 65);
 }
 
 h3 {
-    text-decoration: none; 
+    color: rgb(32, 28, 28); 
 }
-
-.links {
-    text-decoration: none; 
-}
-
 
 .pics {
     width: 350px;
@@ -31,5 +25,30 @@ section {
     align-items: flex-start;
     justify-content: space-around;
     flex-wrap: wrap;
+}
+
+.wrapper {
+
+}
+
+.unicorn {
+   width: 100%
+
+}
+
+.name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 100px;
+}
+
+.price {
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 75px;
 }
 

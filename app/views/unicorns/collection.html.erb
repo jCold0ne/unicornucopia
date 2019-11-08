@@ -1,20 +1,23 @@
 <h1> My Collection </h1>
 
-<section>
+<h2>Create a Listing by entering your desired Buyout Price </h2>
+
+<div class="collection">
     <% @collection.each do |unicorn| %>
         <%= link_to(unicorn) do %>
 
-        
             <%= image_tag unicorn.pic, :class => "pics" if unicorn.pic.attached? %>
-            <h2><%= unicorn.name %></h2>
+            <h2><%= unicorn.name.capitalize %></h2>
             <h3><%= unicorn.original_price %></h3> 
         
         <% end %>
-    
-    <%= form_with url: new_listing_path(unicorn.id), local:true do |form| %>
+</div>
+
+
+
+<%= form_with url: new_listing_path(unicorn.id), local:true do |form| %>
     <%= form.text_field :buyout_price %>
-    <%= form.submit%>
+    <%= form.submit "Create Listing"%>
     <%end %>
 
     <% end %>
-</section>

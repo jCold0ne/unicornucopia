@@ -1,4 +1,5 @@
 <main id="home">
+<div class="container">
 <!-- VISIBLE SVG -->
 <svg viewBox="0 0 1890 1260">
     
@@ -25,6 +26,7 @@
     <%= link_to "I'm ready for my dreams to come true", unicorns_path %> 
 </div> 
 
+<div class="sign">
 <% if current_user %>
 
     <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
@@ -35,3 +37,5 @@
     <%= link_to "Sign in", new_user_session_path %>
 
 <% end %> 
+</div>
+</div>

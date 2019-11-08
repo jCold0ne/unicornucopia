@@ -11,3 +11,26 @@ text {
     font-family: 'Oswald', serif;
     font-weight: 900;
 }
+
+.container {
+    position: relative;
+    text-align: center;
+}
+
+.login {
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sign {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+a {
+    text-decoration: none;
+}
