@@ -10,17 +10,31 @@ unicorn_array = %w(ava celeste chad classy cloud9 dash disco eco flamare flutter
 
 count = 1
 
-if Unicorn.count == 0 
-for i in unicorn_array 
-    unicorn = Unicorn.new(name: i, original_price: rand(100..100000))
-    unicorn.pic.attach(io: File.open("app/assets/images/unicorns/#{i}.png"), filename: "#{i}.png", content_type: "image/png")
-    unicorn.save 
-    p "created #{i} <3"
-
-    user= User.create(email: "test#{count}@test.com", password: "Password123")
-    count += 1
-
-    user.unicorns.push(unicorn)
-end 
-    
+if ENV['RAILS_ENV'] == "development"
+    if Unicorn.count == 0 
+        for i in unicorn_array 
+            unicorn = Unicorn.new(name: i, original_price: rand(100..100000))
+            unicorn.pic.attach(io: File.open("app/assets/images/unicorns/#{i}.png"), filename: "#{i}.png", content_type: "image/png")
+            unicorn.save 
+            p "created #{i} <3"
+        
+            user= User.create(email: "test#{count}@test.com", password: "Password123")
+            count += 1
+        
+            user.unicorns.push(unicorn)
+        end 
+            
+    end
 end
+
+
+if ENV['RAILS_ENV'] == "production"
+    if Unicorn.count == 0 
+        for i in unicorn_array 
+            unicorn = Unicorn.new(name: i, original_price: rand(100..100000))
+            unicorn.pic.attach(io: File.open("app/assets/images/unicorns/#{i}.png"), filename: "#{i}.png", content_type: "image/png")
+            unicorn.save 
+            p "created #{i} <3"
+        end  
+    end
+end 
